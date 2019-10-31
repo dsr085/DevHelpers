@@ -1,0 +1,38 @@
+[color]
+    ui = true
+
+[color "branch"]
+    current = yellow reverse
+    local = yello
+    remote = green
+
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = red
+
+[alias]
+  b = branch
+  co = checkout
+  # Format Means:
+  # %C(bold yellow)%h           SHA1 Hash ID
+  # %C(bold blue)%<(N,trunc)%an Author name (%an) in blue font, padded to N char, but no more
+  # %Cgreen%>(N,trunc)%cr       Relative Commit Date (%cr) right aligned to N char
+  # %Creset %<|(N,trunc)%s      Commit Subject message (%s) in default color, truncated at column N
+  # %C(yellow)%>>|(N,trunc)%d   Branch refs (%d) if present in yellow, right aligned at column N
+  l  = log --pretty=format:'%C(bold yellow)%h %Cblue%<(16)%an %Cgreen%>(12,trunc)%cr %Creset%<|(120,trunc)%s%C(yellow)%>>|(130,trunc)%d' -20
+  ll = log --pretty=format:'%C(bold yellow)%h %Cblue%<(16)%an %Cgreen%>(12,trunc)%cr %Creset%<|(120,trunc)%s%C(yellow)%>>|(130,trunc)%d'
+  graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+	rb = rebase
+	rba = rebase --abort
+	rbc = rebase --continue
+	rbi = rebase --interactive
+	rbs = rebase --skip
+  s = status
+
